@@ -49,6 +49,24 @@ class GamesViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     }
     
+    // When the '+' button is tapped. Make sure sender is 'nil'
+    
+    @IBAction func addTapped(_ sender: Any) {
+        
+        performSegue(withIdentifier: "addSegue", sender: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let nextVC = segue.destination as! AddViewController
+        
+        nextVC.previousVC = self
+        
+    }
+    
+    
+    
     // Creates an initial list of games
     
     func createGames() -> [Game] {
